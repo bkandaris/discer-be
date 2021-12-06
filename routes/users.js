@@ -16,8 +16,6 @@ router.post('/register', async (req, res) => {
     const newUser = new User({
       username: req.body.username,
       password: hashedPassword,
-      //   add extra profile features later
-      // email, picture, skill level, etc.
     });
     const user = await newUser.save();
     res.status(200).json(user);
@@ -56,10 +54,30 @@ router.post('/login', async (req, res) => {
     res.status(500).json(err);
   }
 });
+// update a user
+router.put('/updateuser/:id', async (req, res) => {
+  try {
+    const updatedProfile = await User.findByIdAndUpdate(
+      req.params.id,
+      {
+        $set: req.body,
+      },
+      { new: true }
+    );
+    res.status(200).json(updatedProfile);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
-// get user
-router.get('/profile', validateToken, (req, res) => {
-  res.status(200).json('profile');
+// get a user
+router.get('/find/:id', async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    res.status(200).json(user);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;
