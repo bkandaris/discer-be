@@ -1,12 +1,16 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
 // CLUSTER 0 - Mongodb
 const app = express();
 const cors = require('cors');
 app.use(cors());
 app.use(express.json());
+app.use(cookieParser());
 dotenv.config();
+// routes
+const userRoute = require('./routes/users');
 
 const PORT = process.env.PORT || 5000;
 
@@ -19,6 +23,7 @@ mongoose
     console.log(err);
   });
 
+app.use('/api/user', userRoute);
 app.listen(PORT, () => {
   console.log(`backend running on port: ${PORT}`);
 });
