@@ -4,11 +4,23 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 // CLUSTER 0 - Mongodb
 const app = express();
+// trying for pics
+const bodyParser = require('body-parser');
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(
+  bodyParser.urlencoded({
+    limit: '50mb',
+    extended: true,
+    parameterLimit: 50000,
+  })
+);
+// trying for pics
 const cors = require('cors');
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 dotenv.config();
+
 // routes
 const userRoute = require('./routes/users');
 
