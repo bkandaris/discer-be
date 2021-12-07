@@ -6,13 +6,7 @@ const cookieParser = require('cookie-parser');
 const app = express();
 // trying for pics
 const bodyParser = require('body-parser');
-app.use(
-  bodyParser.urlencoded({
-    limit: '50mb',
-    extended: true,
-    parameterLimit: 50000,
-  })
-);
+app.use(bodyParser.json({ limit: '50mb' }));
 // trying for pics
 const cors = require('cors');
 app.use(cors());
