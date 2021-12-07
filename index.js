@@ -5,8 +5,8 @@ const cookieParser = require('cookie-parser');
 // CLUSTER 0 - Mongodb
 const app = express();
 // trying for pics
-const bodyParser = require('body-parser');
-app.use(bodyParser.json({ limit: '50mb' }));
+// const bodyParser = require('body-parser');
+// app.use(bodyParser.json({ limit: '50mb' }));
 // trying for pics
 const cors = require('cors');
 app.use(cors());
