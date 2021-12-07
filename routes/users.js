@@ -53,6 +53,10 @@ router.post('/login', async (req, res) => {
       _id: user._id,
       username: user.username,
       token: accessToken,
+      email: user.email,
+      phone: user.phone,
+      skill: user.skill,
+      profilePicture: user.profilePicture,
     });
   } catch (err) {
     res.status(500).json(err);
