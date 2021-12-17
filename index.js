@@ -4,10 +4,7 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 // CLUSTER 0 - Mongodb
 const app = express();
-// trying for pics
-// const bodyParser = require('body-parser');
-// app.use(bodyParser.json({ limit: '50mb' }));
-// trying for pics
+
 const cors = require('cors');
 app.use(cors());
 app.use(express.json());
@@ -16,6 +13,7 @@ dotenv.config();
 
 // routes
 const userRoute = require('./routes/users');
+const courseRoute = require('./routes/course');
 
 const PORT = process.env.PORT || 5000;
 
@@ -27,8 +25,12 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
-
+// using routes
 app.use('/api/user', userRoute);
+app.use('/api/course', courseRoute);
+
+
+
 app.listen(PORT, () => {
   console.log(`backend running on port: ${PORT}`);
 });
