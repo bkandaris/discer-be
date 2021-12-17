@@ -6,6 +6,7 @@ router.post('/', async (req, res) => {
   const newCourse = new Course(req.body);
   try {
     const savedCourse = await newCourse.save();
+    res.status(200).json(savedCart);
   } catch (err) {
     res.status(500).json(err);
   }
