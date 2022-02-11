@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 // CLUSTER 0 - Mongodb
+// update to get server running
 const app = express();
 
 const cors = require('cors');
@@ -28,8 +29,6 @@ mongoose
 // using routes
 app.use('/api/user', userRoute);
 app.use('/api/course', courseRoute);
-
-
 
 app.listen(PORT, () => {
   console.log(`backend running on port: ${PORT}`);
