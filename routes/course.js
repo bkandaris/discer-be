@@ -40,7 +40,7 @@ router.delete('/:id', async (req, res) => {
 //   Find a single course
 router.get('/find/:courseId', async (req, res) => {
   try {
-    const course = await Course.find({ courseId: req.params.courseId });
+    const course = await Course.findById(req.params.courseId);
     res.status(200).json(course);
   } catch (err) {
     res.status(500).json(err);
