@@ -2,8 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
-// CLUSTER 0 - Mongodb
-// update to get server running
+
 const app = express();
 
 const cors = require('cors');
