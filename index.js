@@ -25,7 +25,7 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
-// using routes
+
 app.use('/api/user', userRoute);
 app.use('/api/course', courseRoute);
 
