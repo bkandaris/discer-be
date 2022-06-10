@@ -6,7 +6,7 @@ const MeetingSchema = new mongoose.Schema(
     createdById: { type: String, required: true },
     meetingCourse: { type: String, required: true },
     meetingDescription: { type: String, required: false },
-    meetingDate: { type: String, required: true },
+    meetingDate: { type: Object, required: true },
     meetingTime: { type: String, required: true },
     meetingPlayers: { type: Array, required: false },
   },
