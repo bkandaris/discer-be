@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 
 const MeetingSchema = new mongoose.Schema(
   {
-    createdBy: { type: String, required: true },
     createdById: { type: String, required: true },
     meetingCourse: { type: String, required: true },
     meetingDescription: { type: String, required: false },
