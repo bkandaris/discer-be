@@ -20,6 +20,7 @@ dotenv.config();
 // routes
 const userRoute = require('./routes/users');
 const courseRoute = require('./routes/course');
+const meetingRoute = require('./routes/meeting');
 
 const PORT = process.env.PORT || 5000;
 
@@ -34,6 +35,7 @@ mongoose
 
 app.use('/api/user', userRoute);
 app.use('/api/course', courseRoute);
+app.use('/api/meeting', meetingRoute);
 
 app.listen(PORT, () => {
   console.log(`backend running on port: ${PORT}`);
